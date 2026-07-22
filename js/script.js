@@ -7,8 +7,11 @@
     5. Validar se o palpite é um número válido entre 1 e 100.
     6. Comparar o palpite com o número secreto e exibir uma mensagem:
     7. Decrementar o contador de tentativas.
+        7.1 Limpar o Input Number
     8. Exibir o número de tentativas restantes.
     9. Se o jogador atingir o número máximo de tentativas, o jogo termina com a mensagem "Você perdeu! O número secreto era X".
 
 
 */ 
+
+
