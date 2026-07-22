@@ -1,6 +1,6 @@
 /*
 
-    1. Gerar um número aleatório entre 1 e 100 e armazená-lo em uma variável.
+    1. Gerar um número aleatório entre 1 e 100 e armazená-lo em uma variável. OK
     2. Definir o número máximo de tentativas (ex: 10).
     3. Inicializar o contador de tentativas.
     4. Capturar o valor inserido no input (palpite do jogador).
@@ -12,6 +12,63 @@
     9. Se o jogador atingir o número máximo de tentativas, o jogo termina com a mensagem "Você perdeu! O número secreto era X".
 
 
-*/ 
+*/
+
+
+// Funções Utilitarias
+
+const gerarNumeroAleatorio = () => Math.floor(Math.random() * 100) + 1;
+const obterElemento = (id) => document.getElementById(id)
+const obterPalpite = () => obterElemento("palpite").value;
+const limparInput = () => obterElemento("palpite").value = ""
+
+
+const numeroAleatorio = gerarNumeroAleatorio();
+
+
+
+let tentativas = 5;
+
+
+
+function darPalpite() {
+
+
+    const palpite = obterPalpite()
+    const dica = obterElemento("dica")
+    const campoTentativas = document.getElementById("campoTentativa");
+
+
+    if (palpite < 1 || palpite > 100) {
+        alert("Erro: Por favor Insira um valor em 1 e 100.")
+        return;
+    }
+
+
+    if (palpite > numeroAleatorio) {
+        dica.textContent = `Você Errou - O Número Misterioso é MENOR que ${palpite}.`;
+        limparInput()
+    } else if (palpite < numeroAleatorio) {
+        dica.textContent = `Você Errou - O Número Misterioso é MAIOR que ${palpite}.`
+        limparInput()
+    } else {
+        alert(`Parabens! Você acertour, o numero misterioso era ${numeroAleatorio}`)
+        window.location.reload();
+        return;
+    }
+
+    tentativas--
+    campoTentativas.textContent = `Vidas Restantes: ${tentativas}`
+
+    if (tentativas === 0) {
+        alert(`Você Perdeu, o numero misterioso era ${numeroAleatorio}`)
+        window.location.reload();
+    }
+
+
+}
+
+
+
 
 
