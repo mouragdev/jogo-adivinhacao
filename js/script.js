@@ -52,7 +52,7 @@ function darPalpite() {
         dica.textContent = `Você Errou - O Número Misterioso é MAIOR que ${palpite}.`
         limparInput()
     } else {
-        alert(`Parabens! Você acertour, o numero misterioso era ${numeroAleatorio}`)
+        alert(`Parabens! Você acertou, o numero misterioso era ${numeroAleatorio}`)
         window.location.reload();
         return;
     }
